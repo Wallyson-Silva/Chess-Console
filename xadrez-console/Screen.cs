@@ -11,7 +11,7 @@ namespace xadrez_console
             {
                 for (int j = 0; j < board.Columns; j++)
                 {
-                    if (board.Piece(i, j) == null)
+                    if (board.Piece(i, j) is null)
                     {
                         Console.Write("- ");
                     }
