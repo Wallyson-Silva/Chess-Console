@@ -8,14 +8,23 @@ namespace xadrez_console
     {
         static void Main(string[] args)
         {
-            Board board = new Board(8, 8);
+            try
+            {
+                Board board = new Board(8, 8);
 
-            board.PutThePiece(new Tower(Color.Black, board), new Position(0, 3));
-            board.PutThePiece(new Tower(Color.Black, board), new Position(1, 5));
-            board.PutThePiece(new King(Color.Black, board), new Position(2, 4));
+                board.PutThePiece(new Tower(Color.Black, board), new Position(0, 3));
+                board.PutThePiece(new Tower(Color.Black, board), new Position(1, 7));
+                board.PutThePiece(new King(Color.Black, board), new Position(2, 4));
 
-            Screen.PrintBoard(board);
-            Console.ReadLine();
+                Screen.PrintBoard(board);
+                Console.ReadLine();
+            }
+
+            catch(BoardException bE)
+            {
+                Console.WriteLine(bE.Message);
+            }
+            
         }
     }
 }
