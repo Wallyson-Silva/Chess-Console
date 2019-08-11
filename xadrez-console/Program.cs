@@ -8,7 +8,17 @@ namespace xadrez_console
     {
         static void Main(string[] args)
         {
-            try
+
+            PositionChess pC = new PositionChess('a', 1);
+
+            Console.WriteLine(pC);
+
+            Console.WriteLine(pC.ToPosition());
+
+            Console.ReadLine();
+
+            
+            /*try
             {
                 Board board = new Board(8, 8);
 
@@ -23,7 +33,7 @@ namespace xadrez_console
             catch(BoardException bE)
             {
                 Console.WriteLine(bE.Message);
-            }
+            }*/
             
         }
     }
