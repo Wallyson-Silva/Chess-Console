@@ -9,6 +9,7 @@ namespace xadrez_console.chessGame
         public Board Board { get; set; }
         private int Shift;
         private Color CurrentPlayer;
+        public bool Finish { get; private set; }
 
         public MatchOfTheChess()
         {

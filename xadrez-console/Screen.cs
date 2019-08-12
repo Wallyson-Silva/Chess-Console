@@ -1,5 +1,6 @@
 ﻿using System;
 using xadrez_console.board;
+using xadrez_console.chessGame;
 
 namespace xadrez_console
 {
@@ -25,6 +26,14 @@ namespace xadrez_console
                 Console.WriteLine();
             }
             Console.WriteLine("  A B C D E F G H");
+        }
+
+        public static PositionChess ReadPositionChess()
+        {
+            string s = Console.ReadLine();
+            char column = s[0];
+            int line = int.Parse(s[1] + "");
+            return new PositionChess(column, line);
         }
 
         public static void PrintPiece(Piece piece)

@@ -10,17 +10,27 @@ namespace xadrez_console
         {
             try
             {
-                MatchOfTheChess match = new MatchOfTheChess();                
+                MatchOfTheChess match = new MatchOfTheChess();
 
-                Screen.PrintBoard(match.Board);
-                Console.ReadLine();
+                while (!match.Finish)
+                {
+                    Console.Clear();
+                    Screen.PrintBoard(match.Board);
+                    Console.WriteLine();
+
+                    Console.Write("Origin: ");
+                    Position origin = Screen.ReadPositionChess().ToPosition();
+                    Console.Write("Destination: ");
+                    Position destination = Screen.ReadPositionChess().ToPosition();
+
+                    match.ExecMovement(origin, destination);
+                }               
             }
 
             catch(BoardException bE)
             {
                 Console.WriteLine(bE.Message);
-            }
-            
+            }            
         }
     }
 }
