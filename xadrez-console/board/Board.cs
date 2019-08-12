@@ -4,23 +4,23 @@
     {
         public int Lines { get; set; }
         public int Columns { get; set; }
-        private Piece[,] Pieces;
+        private Piece[,] MatPieces; //Matrix of the pieces
 
         public Board(int lines, int columns)
         {
             Lines = lines;
             Columns = columns;
-            Pieces = new Piece[Lines, Columns];
+            MatPieces = new Piece[Lines, Columns]; //the new matrix of type Piece - [Lines, Columns] - for example [8, 8]
         }
 
         public Piece Piece(int line, int column)
         {
-            return Pieces[line, column];
+            return MatPieces[line, column];
         }
 
         public Piece Piece(Position pos)
         {
-            return Pieces[pos.Line, pos.Column];
+            return MatPieces[pos.Line, pos.Column];
         }
 
         public bool ThereIsPiece(Position pos)
@@ -35,14 +35,28 @@
             {
                 throw new BoardException("There was an attempt to include piece where one already existed.");
             }
-            Pieces[pos.Line, pos.Column] = p;
+            MatPieces[pos.Line, pos.Column] = p;
             p.Position = pos;
+        }
 
+        public Piece RemovePiece(Position pos)
+        {
+            if(Piece(pos) == null)
+            {
+                return null;
+            }
+            else
+            {
+                Piece aux = Piece(pos);
+                aux.Position = null;
+                MatPieces[pos.Line, pos.Column] = null;
+                return aux;
+            }
         }
 
         public bool PositionValid(Position pos)
         {
-            if (pos.Line<0 || pos.Line>=Lines || pos.Column<0 || pos.Column >= Columns)
+            if (pos.Line<0 || pos.Line>=Lines || pos.Column<0 || pos.Column>=Columns)
             {
                 return false;
             }

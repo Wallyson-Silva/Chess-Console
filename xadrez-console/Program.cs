@@ -10,17 +10,9 @@ namespace xadrez_console
         {
             try
             {
-                Board board = new Board(8, 8);
+                MatchOfTheChess match = new MatchOfTheChess();                
 
-                board.PutThePiece(new Tower(Color.Black, board), new Position(0, 3));
-                board.PutThePiece(new Tower(Color.Black, board), new Position(1, 7));
-                board.PutThePiece(new King(Color.Black, board), new Position(2, 4));
-
-                board.PutThePiece(new King(Color.White, board), new Position(3, 4));
-                board.PutThePiece(new King(Color.White, board), new Position(5, 4));
-
-
-                Screen.PrintBoard(board);
+                Screen.PrintBoard(match.Board);
                 Console.ReadLine();
             }
 

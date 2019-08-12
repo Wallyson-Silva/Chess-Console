@@ -6,7 +6,6 @@ namespace xadrez_console.board
     {
         public BoardException(string msg) : base(msg)
         {
-
         }
     }
 }

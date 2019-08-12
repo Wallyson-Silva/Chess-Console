@@ -14,5 +14,10 @@
             Board = board;
             QuantityMoves = 0;
         }
+
+        public void IncrementQuantityMoves()
+        {
+            QuantityMoves++;
+        }
     }
 }
