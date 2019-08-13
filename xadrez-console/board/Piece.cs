@@ -1,6 +1,6 @@
 ﻿namespace xadrez_console.board
 {
-    class Piece
+    abstract class Piece
     {
         public Position Position { get; set; }
         public Color Color { get; protected set; } // the protected faz com que ele só possa ser alterada por sua class e subclass
@@ -19,5 +19,8 @@
         {
             QuantityMoves++;
         }
+
+        public abstract bool[,] PossibleMoves();
+        
     }
 }

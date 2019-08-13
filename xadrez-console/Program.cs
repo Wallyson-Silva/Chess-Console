@@ -20,6 +20,13 @@ namespace xadrez_console
 
                     Console.Write("Origin: ");
                     Position origin = Screen.ReadPositionChess().ToPosition();
+
+                    bool[,] possibleMoves = match.Board.Piece(origin).PossibleMoves();
+
+                    Console.Clear();
+                    Screen.PrintBoard(match.Board, possibleMoves);
+                    Console.WriteLine();
+
                     Console.Write("Destination: ");
                     Position destination = Screen.ReadPositionChess().ToPosition();
 
